@@ -1,7 +1,10 @@
 
-##############################
-#Function for running model
-##############################
+###############################################################
+#Function for running Spatially Explicit Operating Model
+###############################################################
+
+#Currently set up to run 50 unfished years, and either 40 or 80 fished years. This could be changed, but the operator would need to alter some aspects of the function (e.g., effort for the time series)
+
 rm(list=ls(all=TRUE))
 
 Spatial_Model<-function(save_wd,               #Working directory for saving output and data
@@ -31,8 +34,7 @@ Spatial_Model<-function(save_wd,               #Working directory for saving out
                         w_profit,              #power weight for fisher profit function
                         proj_yrs,              #How many years to Project??
                         dome_sel_Func,         #Should contact selectivity be dome shaped?
-                        linear_eff_decrease,   #Should effort linearly decrease after max (TRUE) or constant (FALSE)
-                        Super_Comp)            #Is this being run on the super computer?
+                        linear_eff_decrease)   #Should effort linearly decrease after max (TRUE) or constant (FALSE)
 {
   set.seed(seed)
   
@@ -61,19 +63,11 @@ Spatial_Model<-function(save_wd,               #Working directory for saving out
   R0<-1.63E8      #Unfished recruitment
   SSB0<-4.72E15  #Unfished Spawning Biomass size (Eggs) for the entire GOM, not used 
   
-  #Actual Red Snapper Data from Zach and Fabio
-  if (Super_Comp==FALSE){
-    load("C:/Users/nfisch/Documents/RSnapper_Data/ssdf_drop_2.RDATA", verbose=T) 
-  } else if (Super_Comp==TRUE){
-    load("/blue/edvcamp/nfisch/Spatial_Model/ssdf_drop_2.Rdata", verbose=T) 
-  }
+  #US Gulf of Mexico reef fish bottom longline and vertical line observer database
+  load("C:/Users/nfisch/Documents/GitHub/Spatial_RedSnapper_OM_and_SM/ssdf_drop_2.RDATA", verbose=T) 
   
   #Depth Data
-  if (Super_Comp==FALSE){
-    Cells<-read.delim("C:/Users/nfisch/Documents/Snapper_Simulation_Assessments/GOMFLA_Depth_n_substrate.txt", sep=" ",header=TRUE)
-  } else if(Super_Comp==TRUE){
-    Cells<-read.delim("/blue/edvcamp/nfisch/Spatial_Model/GOMFLA_Depth_n_substrate.txt", sep=" ",header=TRUE)
-  }
+  Cells<-read.delim("C:/Users/nfisch/Documents/GitHub/Spatial_RedSnapper_OM_and_SM/GOMFLA_Depth_n_substrate.txt", sep=" ",header=TRUE)
   num_cells<-dim(Cells)[1]                                     #number of spatial cells
   
   ssdf_FLAsubset<-ssdf[ssdf$Lon > -87.5 & ssdf$Depth<70, ]
@@ -95,7 +89,7 @@ Spatial_Model<-function(save_wd,               #Working directory for saving out
   #Aggregate, mean numbers caught at depth and sd
   Agg_list<-list()
   for (i in 1:11){
-    Agg_list[[i]]<-do.call(data.frame, aggregate(ssdf[,50+i],by=list(ssdf$Depth), FUN=function(x) c(Av=mean(x), sig=sd(x))))
+   Agg_list[[i]]<-do.call(data.frame, aggregate(ssdf[,50+i],by=list(ssdf$Depth), FUN=function(x) c(Av=mean(x), sig=sd(x))))
   }
   
   #Fitting mean depth at age and variance using VBF, then assuming those follow a normal
@@ -118,19 +112,15 @@ Spatial_Model<-function(save_wd,               #Working directory for saving out
       Pref_mat_depth_cumd[j,i]<-pnorm(j+0.5, mean=Pred_Means[i], sd=sqrt(Pred_Vars[i]))-pnorm(j-0.5, mean=Pred_Means[i], sd=sqrt(Pred_Vars[i]))
     }
   }
-  Pref_mat_depth[,12:num_ages]<-Pref_mat_depth[,11] #preference for older ages is the same
+  Pref_mat_depth[,12:num_ages]<-Pref_mat_depth[,11] #preference for older ages is the same as age 10
   
   #Making it such that every column has a max at 1
   Pref_mat_depth_standardized<-t(t(Pref_mat_depth)/apply(Pref_mat_depth,2,max))
   row.names(Pref_mat_depth_standardized)<-seq(1,ceiling(max(Cells$Depth)))
   
   #Preference for substrate type
-  if (Super_Comp==FALSE){
-    Pref_sub<-read.delim("C:/Users/nfisch/Documents/Snapper_Simulation_Assessments/substrate_pref.txt", sep=" ",header=TRUE)
-  } else if(Super_Comp==TRUE){
-    Pref_sub<-read.delim("/blue/edvcamp/nfisch/Spatial_Model/substrate_pref.txt", sep=" ",header=TRUE)
-  }
-  Pref_sub[,12:num_ages]<-Pref_sub[,11] #preference for older ages is the same
+  Pref_sub<-read.delim("C:/Users/nfisch/Documents/GitHub/Spatial_RedSnapper_OM_and_SM/substrate_pref.txt", sep=" ",header=TRUE)
+  Pref_sub[,12:num_ages]<-Pref_sub[,11] #preference for older ages is the same as age 10
   Pref_sub<-as.matrix(Pref_sub)
   
   ################################################
@@ -155,11 +145,7 @@ Spatial_Model<-function(save_wd,               #Working directory for saving out
   }
   
   #Reading in distance matrix
-  if (Super_Comp==FALSE){
-    dist_mat<-as.matrix(read.table(file="C:/Users/nfisch/Documents/Snapper_Simulation_Assessments/dist_mat.txt"))
-  } else if (Super_Comp==TRUE){
-    dist_mat<-as.matrix(read.table("/blue/edvcamp/nfisch/Spatial_Model/dist_mat.txt"))
-  }
+  dist_mat<-as.matrix(read.table(file="C:/Users/nfisch/Documents/GitHub/Spatial_RedSnapper_OM_and_SM/dist_mat.txt"))
   
   #Crude county Gulf coast midpoints (county order south to north) There are 22 along the gulf coast
   Gulf_County_Midpoints<-data.frame(County=c("Monroe","Collier","Lee","Charlotte","Sarasota","Manatee","Pinellas","Hillsborough","Pasco","Hernando","Citrus","Levy","Dixie","Taylor","Jefferson","Wakulla","Franklin","Gulf","Bay","Walton","Okaloosa","Santa Rosa","Escambia"),
@@ -172,18 +158,11 @@ Spatial_Model<-function(save_wd,               #Working directory for saving out
   num_ports<-dim(Gulf_County_Midpoints)[1]                     #number of ports that effort goes out from
   
   #Reading in Distance from each county midpoint to each cell
-  if (Super_Comp==FALSE){
-    County_Distance<-as.matrix(read.table(file="C:/Users/nfisch/Documents/Snapper_Simulation_Assessments/County_Distance.txt"))
-  } else if (Super_Comp==TRUE){
-    County_Distance<-as.matrix(read.table("/blue/edvcamp/nfisch/Spatial_Model/County_Distance.txt"))
-  }
+  County_Distance<-as.matrix(read.table(file="C:/Users/nfisch/Documents/GitHub/Spatial_RedSnapper_OM_and_SM/County_Distance.txt"))
   
   #Exponential Distance function based on data
-  if (Super_Comp==FALSE){
-    RSnap_Tag<-read.csv("C:/Users/nfisch/Documents/RSnapper_Data/Tag_snapper.csv")
-  } else if (Super_Comp==TRUE){
-    RSnap_Tag<-read.csv("/blue/edvcamp/nfisch/Spatial_Model/Tag_snapper.csv")
-  }
+  RSnap_Tag<-read.csv("C:/Users/nfisch/Documents/GitHub/Spatial_RedSnapper_OM_and_SM/Tag_snapper.csv")
+
   RSnap_Tag<-RSnap_Tag[!is.na(RSnap_Tag[,1]),] #Taking out NA data
   RSnap_Tag$Dist_Traveled<-earth.dist(RSnap_Tag[,"Lon1"], RSnap_Tag[,"Lat1"], RSnap_Tag[,"Lon2"], RSnap_Tag[,"Lat2"])  #Calculating the distance a red snapper traveled
   RSnap_Tag$Dist_Traveled_peryr<-RSnap_Tag$Dist_Traveled*(365/RSnap_Tag$days_at_large) #Calculating the distance they would have traveled in a full year based on their days at large
@@ -210,26 +189,26 @@ Spatial_Model<-function(save_wd,               #Working directory for saving out
   ####################
   #Starting population
   ####################
-  N_wSpace_preM<-array(0, dim=c(nyear+1+proj_yrs,num_ages,num_cells))    #Actual population-at-age in each cell for each year  
+  N_wSpace_preM<-array(0, dim=c(nyear+1+proj_yrs,num_ages,num_cells))     #Actual population-at-age in each cell for each year  
   N_wSpace_postM<-array(0, dim=c(nyear+1+proj_yrs,num_ages,num_cells))    #Actual population-at-age in each cell for each year
-  SSB_space<-array(0,dim=nyear+1+proj_yrs)                          #Spawning Biomass
+  SSB_space<-array(0,dim=nyear+1+proj_yrs)                                #Spawning Biomass
   ExploitBiomass_space<-matrix(0, nrow=nyear+1+proj_yrs, ncol=num_cells)  #Exploitable Biomass (for fishing preference)
-  ExploitAbun_space<-matrix(0, nrow=nyear+1+proj_yrs, ncol=num_cells)    #Exploitable Abundance (for fishing preference)
-  Catch_num_space<-matrix(0,nrow=nyear+proj_yrs, ncol=num_cells)              #Total catch in each cell
-  Catch_numage_space<-array(0,dim=c(nyear+proj_yrs,num_ages,num_cells))       #Catch at age in each cell 
-  Catch_bio_space<-matrix(0,nrow=nyear+proj_yrs, ncol=num_cells)              #Total Catch in each cell (biomass) 
-  F_space<-array(0, dim=c(nyear+proj_yrs,num_ages,num_cells))           #Fishing mortality over Space
-  p_move_wDD<-array(0,dim=c(num_cells,num_cells,num_ages))     #Movement Transition Matrix
+  ExploitAbun_space<-matrix(0, nrow=nyear+1+proj_yrs, ncol=num_cells)     #Exploitable Abundance (for fishing preference)
+  Catch_num_space<-matrix(0,nrow=nyear+proj_yrs, ncol=num_cells)          #Total catch in each cell
+  Catch_numage_space<-array(0,dim=c(nyear+proj_yrs,num_ages,num_cells))   #Catch at age in each cell 
+  Catch_bio_space<-matrix(0,nrow=nyear+proj_yrs, ncol=num_cells)          #Total Catch in each cell (biomass) 
+  F_space<-array(0, dim=c(nyear+proj_yrs,num_ages,num_cells))             #Fishing mortality over Space
+  p_move_wDD<-array(0,dim=c(num_cells,num_cells,num_ages))                #Movement Transition Matrix
   
   P_Fish<-array(0,dim=c(num_ports,num_cells,nyear+proj_yrs))      #Matrix describing the probability of fishing a cell 
-  if(all_fished==FALSE){
+  if(all_fished==FALSE){ #This conditional is whether all cells are fished or not (i.e. have effort units exploiting them)
     Effort_space<-matrix(0,nrow=nyear+proj_yrs, ncol=num_cells)     #Effort expended in each cell 
-  } else if (all_fished==TRUE){
+  } else if (all_fished==TRUE){ #If all cells are fished during fishing years, then start of with effort level of 1
     Effort_space<-matrix(c(rep(0,num_cells*nyear_init),rep(1,num_cells*(nyear+proj_yrs-nyear_init))),nrow=nyear+proj_yrs, ncol=num_cells, byrow=T)     #Effort expended in each cell 
   }
-  if (dome_sel_Func==FALSE){
-   Selvec<-1/(1+exp(-sel_grow*(seq(0,num_ages-1)-sel_midpt))) #Selectivity, could name parameters
-  } else if (dome_sel_Func==TRUE){  
+  if (dome_sel_Func==FALSE){ #Logistic Contact Selectivity (parameters are in function arguments)
+   Selvec<-1/(1+exp(-sel_grow*(seq(0,num_ages-1)-sel_midpt)))
+  } else if (dome_sel_Func==TRUE){  #Dome Shaped Contact Selectivity (parameters are listed below rather than within function arguments)
    age<-0:20
    Amin<-0
    Amax<-20
@@ -248,46 +227,48 @@ Spatial_Model<-function(save_wd,               #Working directory for saving out
    dsc<-1+(((1+exp(-B6))^-1)-1)*((exp(-(age-peak2)/exp(B4))-1)/(t2-1))
    Selvec<-asc*(1-j1)+j1*((1-j2)+j2*dsc)
   }
-  Sel<-matrix(Selvec,nrow=num_ages, ncol=num_cells) #Sel Matrix
+  Sel<-matrix(Selvec,nrow=num_ages, ncol=num_cells) #Contact Selectivity Matrix for each year
   
   ##################################
-  #Statewide Angler hours each year
+  #Statewide effort each year
   ##################################
   #Effort as logistic increase and linear decrease
-  if(nyear==90){
+  if(nyear==90){ #If 40 year fishing time series
     eff_grate<-0.25
     eff_linear_slope<-2500
-  } else if (nyear==130){
+  } else if (nyear==130){ #If 80 year fishing time series
     eff_grate<-0.125
     eff_linear_slope<-1250
   }
   
-  Effort_logis_mean<-eff_scalar/(1+exp(-eff_grate*(seq(1,(nyear-nyear_init)*0.75,1)-((nyear-nyear_init)*0.75)/3)))                                        #Logistic increase to 75% of time series
-  if(linear_eff_decrease==TRUE){
-  Effort_logis_mean[(((nyear-nyear_init)*0.75)+1):(nyear-nyear_init)]<-Effort_logis_mean[(nyear-nyear_init)*0.75]+-eff_linear_slope*(1:((nyear-nyear_init)*0.25))      #linear decrease for final 25%
+  Effort_logis_mean<-eff_scalar/(1+exp(-eff_grate*(seq(1,(nyear-nyear_init)*0.75,1)-((nyear-nyear_init)*0.75)/3)))      #Logistic increase to 75% of time series
+  if(linear_eff_decrease==TRUE){ #Either linear decrease after effort asymptote or (see two lines down)
+   Effort_logis_mean[(((nyear-nyear_init)*0.75)+1):(nyear-nyear_init)]<-Effort_logis_mean[(nyear-nyear_init)*0.75]+-eff_linear_slope*(1:((nyear-nyear_init)*0.25))  #linear decrease for final 25%
   }else if (linear_eff_decrease==FALSE){ #Constant effort at 75% of max
     Effort_logis_mean[(((nyear-nyear_init)*0.75)+1):(nyear-nyear_init)]<-rep(Effort_logis_mean[(nyear-nyear_init)*0.75]*0.75,length((((nyear-nyear_init)*0.75)+1):(nyear-nyear_init)))
   }
   
-  if(PE==FALSE){
+  if(PE==FALSE){ #If Process variance is false
     Effort<-c(rep(0,nyear_init),  Effort_logis_mean)
-  } else if(PE==TRUE | PE=="Hybrid"){
-    #For constant effort after asymptote
+  } else if(PE==TRUE | PE=="Hybrid"){ #If there is process variance 
+    #Normal variance about effort
     Effort<-c(rep(0,nyear_init),rnorm(nyear-nyear_init, mean=Effort_logis_mean, sd=cv_totaleff*Effort_logis_mean))
   }
   Effort<-ifelse(Effort<0, 1, Effort)  #Error catcher to make negative efforts zero
   
   Effort_midpoints<-matrix(0,nrow=nyear,ncol=num_ports)
-  #Effort going from each port each year (i), could add process error to this
+  #Effort going from each port each year (i)
   if(PE==FALSE){
     for (i in 1:nyear){
       Effort_midpoints[i,]<-Gulf_County_Midpoints$Prop_pop*Effort[i]
     }
-  } else if(PE==TRUE | PE=="Hybrid"){
+  } else if(PE==TRUE | PE=="Hybrid"){ #With multinomial process variance for how much effort goes out from ports
     for (i in 1:nyear){
       Effort_midpoints[i,]<-rmultinom(n=1, size=Effort[i], prob=Gulf_County_Midpoints$Prop_pop)
     }
   }
+  
+  #"Hybrid" is a model with no process variation in movement or spatial fishing distribution but still process variation in other quantities.  
   
   #1st Dimension is years (nyear)
   #2nd Dimension is Age (0-20)
@@ -450,9 +431,9 @@ Spatial_Model<-function(save_wd,               #Working directory for saving out
     }
   }
   
-  #######################################
-  #Spatial Model with no process error
-  ####################################### 
+  ###########################################
+  #Spatial Model with no process variation
+  ###########################################
   else if (PE==FALSE){
     #Initial Year Recruitment
     N_wSpace_preM[1,1,]<-N_wSpace_postM[1,1,]<-exp(lR0_FLA)*((Pref_mat_depth_standardized[round(Cells[,"Depth"]),1]*Pref_sub[Cells[,"substrate_code"],1])/sum(Pref_mat_depth_standardized[round(Cells[,"Depth"]),1]*Pref_sub[Cells[,"substrate_code"],1]))
@@ -601,7 +582,7 @@ Spatial_Model<-function(save_wd,               #Working directory for saving out
   }
   
   #######################################
-  #Spatial Model with Process Error
+  #Spatial Model with Process Variation
   ####################################### 
   else if(PE==TRUE){
     #Initial Year Recruitment
@@ -772,36 +753,37 @@ Spatial_Model<-function(save_wd,               #Working directory for saving out
   saveRDS(Effort_midpoints, file=paste0(save_wd, "/Effort_midpoints.rds" ))
 }
 
-#Status Quo Model
+#Examples for running the functions
+
+#Status Quo Model with gravity model effort distribution
 #for (i in 1:100){
-#  Spatial_Model(save_wd=paste0("/blue/edvcamp/nfisch/Chapter_4/OMs/GM_PE_40yr_",i),
+#  Spatial_Model(save_wd=paste0("where you want to save output",i),
 #                seed=i,PE=TRUE,nyear=90,nyear_init=50,num_ages=21,lam_data=TRUE,lam_moveCost=0.02,DD_rate=0.5,DD_Thresh_quant=0.75,sig_logR=0.3, 
 #                q=0.005, sel_grow=2, sel_midpt=2, lam_Costdist=0.03, Abunpref_grate=0.00025, all_fished=TRUE, eff_scalar=1e5, cv_totaleff=0.25,
-#                w_dist=1, w_depth=1, w_substrate=1, w_DD=1, w_cost=1, w_profit=1, proj_yrs=5, Super_Comp=TRUE, dome_sel_Func=FALSE,linear_eff_decrease=TRUE)
+#                w_dist=1, w_depth=1, w_substrate=1, w_DD=1, w_cost=1, w_profit=1, proj_yrs=5, dome_sel_Func=FALSE,linear_eff_decrease=TRUE)
 #}
 
 #Random Fishing Model
 #for (i in 1:100){
-#  Spatial_Model(save_wd=paste0("/blue/edvcamp/nfisch/Chapter_4/OMs/RF_Dome_PE_80yr_",i), 
+#  Spatial_Model(save_wd=paste0("where you want to save output",i), 
 #                seed=i,PE=TRUE,nyear=130,nyear_init=50,num_ages=21,lam_data=TRUE,lam_moveCost=0.02,DD_rate=0.5,DD_Thresh_quant=0.75,sig_logR=0.3,
 #                q=0.005, sel_grow=2, sel_midpt=2, lam_Costdist=0, Abunpref_grate=0, all_fished=TRUE, eff_scalar=1e5, cv_totaleff=0.25,
-#                w_dist=1, w_depth=1, w_substrate=1, w_DD=1, w_cost=1, w_profit=1, proj_yrs=5, Super_Comp=TRUE, dome_sel_Func=TRUE,linear_eff_decrease=TRUE) 
+#                w_dist=1, w_depth=1, w_substrate=1, w_DD=1, w_cost=1, w_profit=1, proj_yrs=5, dome_sel_Func=TRUE,linear_eff_decrease=TRUE) 
 #}
 
 #Hybrid RF Fishing Model
 #for (i in 1:100){
-#Spatial_Model(save_wd=paste0("/blue/edvcamp/nfisch/Chapter_4/OMs/RF_Dome_Hybrid_CE_80yr_",i), 
+#Spatial_Model(save_wd=paste0("where you want to save output",i), 
 #              seed=i,PE="Hybrid",nyear=130,nyear_init=50,num_ages=21,lam_data=TRUE,lam_moveCost=0.02,DD_rate=0.5,DD_Thresh_quant=0.75,sig_logR=0.3,
 #              q=0.005, sel_grow=2, sel_midpt=2, lam_Costdist=0, Abunpref_grate=0, all_fished=TRUE, eff_scalar=1e5, cv_totaleff=0.25, 
-#              w_dist=1, w_depth=1, w_substrate=1, w_DD=1, w_cost=1, w_profit=1, proj_yrs=5, Super_Comp=TRUE, dome_sel_Func=TRUE,linear_eff_decrease=FALSE) 
+#              w_dist=1, w_depth=1, w_substrate=1, w_DD=1, w_cost=1, w_profit=1, proj_yrs=5, dome_sel_Func=TRUE,linear_eff_decrease=FALSE) 
 #}
 
-#Hybrid GM model
-for (i in 1:100){
-  Spatial_Model(save_wd=paste0("/blue/edvcamp/nfisch/Chapter_4/OMs/GM_Hybrid_CE_40yr_",i),
-                seed=i,PE="Hybrid",nyear=90,nyear_init=50,num_ages=21,lam_data=TRUE,lam_moveCost=0.02,DD_rate=0.5,DD_Thresh_quant=0.75,sig_logR=0.3, 
-                q=0.005, sel_grow=2, sel_midpt=2, lam_Costdist=0.03, Abunpref_grate=0.00025, all_fished=TRUE, eff_scalar=1e5, cv_totaleff=0.25,
-                w_dist=1, w_depth=1, w_substrate=1, w_DD=1, w_cost=1, w_profit=1, proj_yrs=5, Super_Comp=TRUE, dome_sel_Func=FALSE,linear_eff_decrease=FALSE)
-}
+#Hybrid Gravity Model effort distribution model
+#for (i in 1:100){
+#  Spatial_Model(save_wd=paste0("where you want to save output",i),
+#                seed=i,PE="Hybrid",nyear=90,nyear_init=50,num_ages=21,lam_data=TRUE,lam_moveCost=0.02,DD_rate=0.5,DD_Thresh_quant=0.75,sig_logR=0.3, 
+#                q=0.005, sel_grow=2, sel_midpt=2, lam_Costdist=0.03, Abunpref_grate=0.00025, all_fished=TRUE, eff_scalar=1e5, cv_totaleff=0.25,
+#                w_dist=1, w_depth=1, w_substrate=1, w_DD=1, w_cost=1, w_profit=1, proj_yrs=5, dome_sel_Func=FALSE,linear_eff_decrease=FALSE)
+#}
 
-warnings()

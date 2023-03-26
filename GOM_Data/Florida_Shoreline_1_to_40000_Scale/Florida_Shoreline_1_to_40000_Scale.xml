@@ -1,0 +1,348 @@
+<?xml version="1.0" encoding="UTF-8"?><metadata>
+<idinfo>
+<citation>
+<citeinfo>
+<origin/>
+<title>Shoreline Polygon Without Water 1:40,000 Scale Florida</title>
+<geoform>vector digital data</geoform>
+<pubinfo>
+<pubplace/>
+<publish>FWC, FWRI</publish>
+</pubinfo>
+</citeinfo>
+</citation>
+<descript>
+<abstract>This GIS data set represents the Florida shoreline as polygons and lines. Initially digitized in 1990 by USFWS under FWRI contract, the data set was created from the most current National Oceanic and Atmospheric Administration (NOAA) Nautical Charts available at the time. The scale of the source charts varied from 1:10,000 in some harbors to 1:80,000 in the Big Bend area. However, most of the source scale is 1:40,000. The current data set is the result of revisions to the 1990 version. Some areas, including inland areas where there is no chart coverage and areas that have needed more accuracy for individual projects, have been digitized from USGS 7.5-minute Quadrangles and Digital Orthophoto Quarter Quadrangles (DOQQs).</abstract>
+<purpose>This data set represents the Florida Shoreline at a 1:40,000 scale in vector format.</purpose>
+<supplinf>Prior to July 1, 2004, the Fish and Wildlife Research Institute (FWRI) was known as the Florida Marine Research Institute (FMRI). The institute name has not been changed in historical data sets or references to work completed by the Florida Marine Research Institute. The institute name has been changed in references to ongoing research, new research, and contact information. The source scale varies from 1:10,000 to 1:80,000.</supplinf>
+</descript>
+<timeperd>
+<timeinfo>
+<rngdates>
+<begdate>19900101</begdate>
+</rngdates>
+</timeinfo>
+<current>These data were initially created in 1990; however, updates continue as needed.</current>
+</timeperd>
+<status>
+<progress>Complete</progress>
+<update>As needed</update>
+</status>
+<spdom>
+<bounding>
+<westbc>-87.639229</westbc>
+<eastbc>-79.341716</eastbc>
+<northbc>31.042844</northbc>
+<southbc>23.973399</southbc>
+</bounding>
+</spdom>
+<keywords>
+<theme>
+<themekt>ISO 19115 Topic Category</themekt>
+<themekey>boundaries</themekey>
+</theme>
+<theme>
+<themekt>FWRItheme</themekt>
+<themekey>coastal</themekey>
+<themekey>GIS</themekey>
+<themekey>shoreline</themekey>
+<themekey>mapping</themekey>
+</theme>
+<place>
+<placekt>FWC Region</placekt>
+<placekey>FWC Region-Southwest</placekey>
+<placekey>FWC Region-Northwest</placekey>
+<placekey>FWC Region-North Central</placekey>
+<placekey>FWC Region-South</placekey>
+<placekey>FWC Region-Northeast</placekey>
+</place>
+<place>
+<placekt>Florida Waterbodies</placekt>
+<placekey>Gulf of Mexico</placekey>
+<placekey>Atlantic Ocean</placekey>
+<placekey>Florida Bay</placekey>
+</place>
+<place>
+<placekt>FWRIplace</placekt>
+<placekey>Gulf of Mexico</placekey>
+<placekey>Florida Keys</placekey>
+<placekey>Tampa Bay</placekey>
+<placekey>Everglades National Park</placekey>
+<placekey>Florida</placekey>
+<placekey>southwest Florida</placekey>
+<placekey>southeast Florida</placekey>
+<placekey>Saint Johns River</placekey>
+<placekey>east coast of Florida</placekey>
+<placekey>Lake Okeechobee</placekey>
+<placekey>northwest Florida</placekey>
+<placekey>statewide</placekey>
+<placekey>Atlantic Ocean</placekey>
+<placekey>west coast of Florida</placekey>
+<placekey>south Florida</placekey>
+<placekey>north Florida</placekey>
+<placekey>northeast Florida</placekey>
+<placekey>Charlotte Harbor</placekey>
+</place>
+<place>
+<placekt>Water Management Districts</placekt>
+<placekey>St. Johns River Water Management District</placekey>
+<placekey>Southwest Florida Water Management District</placekey>
+<placekey>Suwannee River Water Management District</placekey>
+<placekey>South Florida Water Management District</placekey>
+<placekey>Northwest Florida Water Management District</placekey>
+</place>
+</keywords>
+<accconst>All data must be verified by Principal Investigator or Group Database Analyst prior to release. It is strongly recommended that this data is directly acquired from FWC and not indirectly through other sources which may have changed the data in some way. FWC makes no claims as to the datas suitability for other purposes.</accconst>
+<useconst>Acknowledgement of the FWC-FWRI (Florida Fish and Wildlife Conservation Commission-Fish and Wildlife Research Institute) as the data source would be appreciated in any products developed from these data, and such acknowledgment as is standard for citation and legal practices for data source is expected by users of this data. Please cite the original metadata when using portions of the record to create a similar record of slightly altered data, such as reprojection. If any data are modified or adjusted, please share the edited information with FWC. Users should be aware that comparison with other data sets for the same area from other time periods may be inaccurate due to inconsistencies resulting from changes in mapping conventions, data collection, and computer processes over time. FWC shall not be liable for improper or incorrect use of this data. These data are not legal documents and are not to be used as such. This is not a survey data set and should not be utilized as such. These data are not to be used for navigation.</useconst>
+<ptcontac>
+<cntinfo>
+<cntorgp>
+<cntorg>FWC-FWRI (Florida Fish and Wildlife Conservation Commission-Fish and Wildlife Research Institute)</cntorg>
+<cntper>GISLibrarian</cntper>
+</cntorgp>
+<cntpos>GIS Data Librarian</cntpos>
+<cntaddr>
+<addrtype>mailing and physical</addrtype>
+<address>Fish and Wildlife Research Institute 100 Eighth Avenue Southeast</address>
+<city>St. Petersburg</city>
+<state>Florida</state>
+<postal>33701</postal>
+<country>US</country>
+</cntaddr>
+<cntvoice>727-896-8626</cntvoice>
+<cntfax>727-893-1679</cntfax>
+<cntemail>GISLibrarian@MyFWC.com</cntemail>
+<hours>8:00 a.m.-5:00 p.m. Eastern time</hours>
+</cntinfo>
+</ptcontac>
+<secinfo>
+<secsys>FWRI-DC</secsys>
+<sechandl>Available without restriction</sechandl>
+</secinfo>
+<native>Microsoft Windows 2000 Version 5.0 (Build 2195) Service Pack 1; ESRI ArcCatalog 8.1.1.649</native>
+</idinfo>
+<dataqual>
+<attracc>
+<attraccr>All entities and attributes have been identified and documented.</attraccr>
+</attracc>
+<logic>unknown</logic>
+<complete>unknown</complete>
+<posacc>
+<horizpa>
+<horizpar>Varies from 1:10,000 to 1:80,000</horizpar>
+</horizpa>
+</posacc>
+<lineage>
+<srcinfo>
+<srccite>
+<citeinfo>
+<title>National Oceanic and Atmospheric Administration, 1:40,000 scale Nautical charts</title>
+</citeinfo>
+</srccite>
+<srcscale>40000</srcscale>
+<typesrc>hardcopy</typesrc>
+<srccitea>National Oceanic and Atmospheric Administration, 1:40,000 scale Nautical charts</srccitea>
+<srccontr>Nautical charts from which the shoreline was originally digitized.</srccontr>
+</srcinfo>
+<srcinfo>
+<srccite>
+<citeinfo>
+<pubdate>19900101</pubdate>
+<title>camra_mrgis_fl40_1990 (retired data)</title>
+</citeinfo>
+</srccite>
+<srcscale>40000</srcscale>
+<typesrc>hardcopy</typesrc>
+<srccitea>camra_mrgis_fl40_1990 (retired data)</srccitea>
+<srccontr>1990 fl_40 shoreline coverage digitized by USFWS.</srccontr>
+</srcinfo>
+<procstep>
+<procdesc>This Florida shoreline was originally digitized in 1990 by USFWS under FWRI contract. In all cases, USFWS used the most detailed NOAA navigational charts available at the time (i.e. harbor areas were taken from 1:10000 and the Big Bend was taken from 1:80000). In some areas, nautical charts were insufficient and 1:24000 USGS quadrangles or DOQQs were used instead of the nautical charts. This is especially true along rivers.</procdesc>
+<procdate>19900101</procdate>
+<proccont>
+<cntinfo>
+<cntorgp>
+<cntorg>FWC-FWRI (Florida Fish and Wildlife Conservation Commission-Fish and Wildlife Research Institute)</cntorg>
+<cntper>GISLibrarian</cntper>
+</cntorgp>
+<cntpos>GIS Data Librarian</cntpos>
+<cntaddr>
+<addrtype>mailing and physical</addrtype>
+<address>Fish and Wildlife Research Institute 100 Eighth Avenue Southeast</address>
+<city>St. Petersburg</city>
+<state>Florida</state>
+<postal>33701</postal>
+<country>US</country>
+</cntaddr>
+<cntvoice>727-896-8626</cntvoice>
+<cntfax>727-893-1679</cntfax>
+<cntemail>GISLibrarian@MyFWC.com</cntemail>
+<hours>8:00 a.m.-5:00 p.m. Eastern time</hours>
+</cntinfo>
+</proccont>
+</procstep>
+<procstep>
+<procdesc>The shoreline has been supplemented and updated from various sources including DOQQs and USGS 7.5-minute quadrangles. For a history file of updated areas, contact the GIS Librarian.</procdesc>
+<procdate>20000101</procdate>
+<proccont>
+<cntinfo>
+<cntorgp>
+<cntorg>FWC-FWRI (Florida Fish and Wildlife Conservation Commission-Fish and Wildlife Research Institute)</cntorg>
+<cntper>GISLibrarian</cntper>
+</cntorgp>
+<cntpos>GIS Data Librarian</cntpos>
+<cntaddr>
+<addrtype>mailing and physical</addrtype>
+<address>Fish and Wildlife Research Institute 100 Eighth Avenue Southeast</address>
+<city>St. Petersburg</city>
+<state>Florida</state>
+<postal>33701</postal>
+<country>US</country>
+</cntaddr>
+<cntvoice>727-896-8626</cntvoice>
+<cntfax>727-893-1679</cntfax>
+<cntemail>GISLibrarian@MyFWC.com</cntemail>
+<hours>8:00 a.m.-5:00 p.m. Eastern time</hours>
+</cntinfo>
+</proccont>
+</procstep>
+<procstep>
+<procdesc>FWRI staff updated these data with revisions made during the "manatee speed zones" project of 2002.</procdesc>
+<procdate>20030101</procdate>
+<proccont>
+<cntinfo>
+<cntorgp>
+<cntorg>FWC-FWRI (Florida Fish and Wildlife Conservation Commission-Fish and Wildlife Research Institute)</cntorg>
+<cntper>GISLibrarian</cntper>
+</cntorgp>
+<cntpos>GIS Data Librarian</cntpos>
+<cntaddr>
+<addrtype>mailing and physical</addrtype>
+<address>Fish and Wildlife Research Institute 100 Eighth Avenue Southeast</address>
+<city>St. Petersburg</city>
+<state>Florida</state>
+<postal>33701</postal>
+<country>US</country>
+</cntaddr>
+<cntvoice>727-896-8626</cntvoice>
+<cntfax>727-893-1679</cntfax>
+<cntemail>GISLibrarian@MyFWC.com</cntemail>
+<hours>8:00 a.m.-5:00 p.m. Eastern time</hours>
+</cntinfo>
+</proccont>
+</procstep>
+<procstep>
+<procdesc>FWRI staff updated the linework in Miami-Dade County to include linework digitized in-house for manatee speed zones and another project. Only major shoreline linework was edited, as well as some interior canalwork that was important for the manatee speed zones. The revised linework was edgematched to the 1:40,000 shoreline linework, so that no interior canals were lost. The new linework and polygon attributes have been verified against 1999 DOQQs.</procdesc>
+<procdate>20040201</procdate>
+<proccont>
+<cntinfo>
+<cntorgp>
+<cntorg>FWC-FWRI (Florida Fish and Wildlife Conservation Commission-Fish and Wildlife Research Institute)</cntorg>
+<cntper>GISLibrarian</cntper>
+</cntorgp>
+<cntpos>GIS Data Librarian</cntpos>
+<cntaddr>
+<addrtype>mailing and physical</addrtype>
+<address>Fish and Wildlife Research Institute 100 Eighth Avenue Southeast</address>
+<city>St. Petersburg</city>
+<state>Florida</state>
+<postal>33701</postal>
+<country>US</country>
+</cntaddr>
+<cntvoice>727-896-8626</cntvoice>
+<cntfax>727-893-1679</cntfax>
+<cntemail>GISLibrarian@MyFWC.com</cntemail>
+<hours>8:00 a.m.-5:00 p.m. Eastern time</hours>
+</cntinfo>
+</proccont>
+</procstep>
+</lineage>
+</dataqual>
+<spdoinfo>
+<direct>Vector</direct>
+<ptvctinf>
+<sdtsterm>
+<sdtstype>GT-polygon composed of chains</sdtstype>
+<ptvctcnt>14477</ptvctcnt>
+</sdtsterm>
+<sdtsterm>
+<sdtstype>GT-polygon composed of chains</sdtstype>
+<ptvctcnt>17730</ptvctcnt>
+</sdtsterm>
+</ptvctinf>
+</spdoinfo>
+<eainfo>
+<overview>
+<eaover>This data set is composed of polygons and lines depicting the shoreline of Florida. Each polygon contains the item ATTRIBUTE, which tells whether it is land or water.</eaover>
+<eadetcit>U. S. Dept. of Commerce, National Ocean and Atmospheric Service, National Ocean Service. NOAA Nautical Charts at various scales.</eadetcit>
+</overview>
+</eainfo>
+<distinfo>
+<distrib>
+<cntinfo>
+<cntorgp>
+<cntorg>FWC-FWRI (Florida Fish and Wildlife Conservation Commission-Fish and Wildlife Research Institute)</cntorg>
+<cntper>GISLibrarian</cntper>
+</cntorgp>
+<cntpos>GIS Data Librarian</cntpos>
+<cntaddr>
+<addrtype>mailing and physical</addrtype>
+<address>Fish and Wildlife Research Institute 100 Eighth Avenue Southeast</address>
+<city>St. Petersburg</city>
+<state>Florida</state>
+<postal>33701</postal>
+<country>US</country>
+</cntaddr>
+<cntvoice>727-896-8626</cntvoice>
+<cntfax>727-893-1679</cntfax>
+<cntemail>GISLibrarian@MyFWC.com</cntemail>
+<hours>8:00 a.m.-5:00 p.m. Eastern time</hours>
+</cntinfo>
+</distrib>
+<distliab>This data set is in the public domain, and the recipient may not assert any proprietary rights thereto nor represent it to anyone as other than a FWC-FWRI produced data set; it is provided "as-is" without warranty of any kind, including, but not limited to, the implied warranties of merchantability and fitness for a particular purpose. The user assumes all responsibility for the accuracy and suitability of this data set for a specific application. In no event will the staff of the Fish and Wildlife Research Institute be liable for any damages, including lost profits, lost savings, or other incidental or consequential damages arising from the use of or the inability to use this data set.</distliab>
+<stdorder>
+<digform>
+<digtinfo>
+<formname>SHP</formname>
+</digtinfo>
+</digform>
+<fees>None. However, persons or organizations requesting information must provide transfer media if FTP is not available and must pay express shipping costs if express shipping is required.</fees>
+<ordering>Contact GIS Librarian by e-mail, telephone, or letter explaining which products are needed and providing a brief description of how the products will be used. Also, provide name and address of the person or organization requesting the products.</ordering>
+<turnarnd>Usually within 10 business days, although, complex requests may take longer</turnarnd>
+</stdorder>
+</distinfo>
+<metainfo>
+<metd>20020205</metd>
+<metrd>20060503</metrd>
+<metc>
+<cntinfo>
+<cntorgp>
+<cntorg>FWC-FWRI (Florida Fish and Wildlife Conservation Commission-Fish and Wildlife Research Institute)</cntorg>
+<cntper>GISLibrarian</cntper>
+</cntorgp>
+<cntpos>GIS Data Librarian</cntpos>
+<cntaddr>
+<addrtype>mailing and physical</addrtype>
+<address>Fish and Wildlife Research Institute 100 Eighth Avenue Southeast</address>
+<city>St. Petersburg</city>
+<state>Florida</state>
+<postal>33701</postal>
+<country>US</country>
+</cntaddr>
+<cntvoice>727-896-8626</cntvoice>
+<cntfax>727-893-1679</cntfax>
+<cntemail>GISLibrarian@MyFWC.com</cntemail>
+<hours>8:00 a.m.-5:00 p.m. Eastern time</hours>
+</cntinfo>
+</metc>
+<metstdn>FGDC Content Standard for Digital Geospatial Metadata</metstdn>
+<metstdv>FGDC-STD-001-1998</metstdv>
+<mettc>local time</mettc>
+<metac>No restrictions on metadata.</metac>
+<metuc>Metadata must be distributed with the data set.</metuc>
+<metsi>
+<metscs>FWRI-MC</metscs>
+<metshd>Metadata must be distributed with the data set.</metshd>
+</metsi>
+</metainfo>
+</metadata>

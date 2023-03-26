@@ -1,0 +1,481 @@
+<?xml version="1.0" encoding="UTF-8"?><metadata>
+<idinfo>
+<citation>
+<citeinfo>
+<origin/>
+<pubdate>20171101</pubdate>
+<title>Hardbottom Mapping and Community Characterization of the West-Central Florida Gulf Coast</title>
+<geoform>vector digital data</geoform>
+<pubinfo>
+<pubplace/>
+<publish>Florida Fish and Wildlife Conservation Commission-Fish and Wildlife Research Institute</publish>
+</pubinfo>
+</citeinfo>
+</citation>
+<descript>
+<abstract>This project is a collaborative effort between NOVA Southeastern University (Principal Investigator Brian Walker) and FWC FWRI. The primary objectives of this cooperative project are 1) Map West Florida continental shelf colonized hard bottom features as well as the offshore extent of seagrass in optically shallow waters using satellite imagery, object based image analysis and photo-interpretation techniques; 2) Conduct qualitative benthic surveys to validate the map and associate community information to the classification; 3) Conduct and analyze quantitative benthic surveys to characterize the hard bottom communities throughout the mapped space; 4) Compare and integrate acoustic-based and satellite imagery based seafloor maps; and 5) Develop recommendations as to how habitat data collected through satellite imagery can best be utilized to improve overall survey efficiency and the utility of data collected.</abstract>
+<purpose>Map and characterize the benthic community of the West Central Gulf Coast study areas off Tarpon Springs and Sarasota.</purpose>
+<supplinf>Prior to July 1, 2004, the Fish and Wildlife Research Institute (FWRI) was known as the Florida Marine Research Institute (FMRI). The institute name has not been changed in historical data sets or references to work completed by the Florida Marine Research Institute. The institute name has been changed in references to ongoing research, new research, and contact information.</supplinf>
+</descript>
+<timeperd>
+<timeinfo>
+<rngdates>
+<begdate>20111207</begdate>
+<enddate>20160627</enddate>
+</rngdates>
+</timeinfo>
+<current>Ground condition</current>
+</timeperd>
+<status>
+<progress>Complete</progress>
+<update>As needed</update>
+</status>
+<spdom>
+<bounding>
+<westbc>-83.032972</westbc>
+<eastbc>-82.624098</eastbc>
+<northbc>28.335304</northbc>
+<southbc>27.160553</southbc>
+</bounding>
+</spdom>
+<keywords>
+<theme>
+<themekt>User</themekt>
+<themekey>remote sensing</themekey>
+<themekey>assessment</themekey>
+<themekey>GIS</themekey>
+<themekey>essential fish habitat</themekey>
+<themekey>bathymetry</themekey>
+</theme>
+<place>
+<placekt>None</placekt>
+<placekey>Florida</placekey>
+<placekey>west coast of Florida</placekey>
+</place>
+</keywords>
+<accconst>These data are unrestricted. Where possible, always acquire this dataset directly from FWC or NOVA Southeastern University as other sources may have altered the original data.</accconst>
+<useconst>Users are encouraged to read and fully comprehend the metadata record prior to using these data. Please acknowledge NOVA Southeastern University and the Florida Fish and Wildlife Conservation Commission (FWC) as the data source for any products developed from these data. Users should be aware that comparison with other data sets for the same area may be inaccurate due to inconsistencies resulting from changes in mapping conventions, data collection techniques, and computer processes over time. FWC shall not be liable for improper or incorrect use of these data.</useconst>
+<ptcontac>
+<cntinfo>
+<cntorgp>
+<cntorg>Nova Southeastern University</cntorg>
+<cntper>Brian Walker</cntper>
+</cntorgp>
+<cntpos>Research Scientist</cntpos>
+<cntaddr>
+<addrtype>mailing and physical</addrtype>
+<address>8000 N Ocean Drive</address>
+<city>Dania Beach</city>
+<state>Florida</state>
+<postal>33004</postal>
+</cntaddr>
+<cntvoice>954-262-3675</cntvoice>
+<cntemail>walkerb@nova.edu</cntemail>
+</cntinfo>
+</ptcontac>
+<datacred>Brian Walker, NOVA Southeastern University &amp; Florida Fish and Wildlife Conservation Commission: Fish &amp; Wildlife Research Institute</datacred>
+<secinfo>
+<secsys>FWRI-DC</secsys>
+<sechandl>Available without restriction</sechandl>
+</secinfo>
+<native>ArcGIS for Desktop</native>
+</idinfo>
+<dataqual>
+<attracc>
+<attraccr>These data are complete and reported as accurate to the FWC GIS Librarian by Brian Walker as of the delivery of the final Progress report to the Florida RESTORE Act Centers of Excellence Program on May 29, 2018.</attraccr>
+</attracc>
+<logic>The data and attributes appear to be consistent.</logic>
+<complete>These data are complete as of the delivery of the final Progress report to the Florida RESTORE Act Centers of Excellence Program on May 29, 2018.</complete>
+<lineage>
+<srcinfo>
+<srccite>
+<citeinfo>
+<pubdate>20171101</pubdate>
+<title>Hardbottom mapping and community characterization of the West Central Florida Gulf Coast</title>
+</citeinfo>
+</srccite>
+<typesrc>None</typesrc>
+<srccitea>Hardbottom mapping and community characterization of the West Central Florida Gulf Coast</srccitea>
+</srcinfo>
+<procstep>
+<procdesc>Visual interpretation of available Quickbird and Worldview 2 imagery to create a benthic habitat classification conforming to the Coastal and Marine Ecological Classification Standard</procdesc>
+</procstep>
+<procstep>
+<procdesc>SCUBA based in-situ survey to characterize the hardbottom benthic communities</procdesc>
+</procstep>
+<procstep>
+<procdesc>Qualitative groundtruthing via video drop cam.</procdesc>
+</procstep>
+</lineage>
+</dataqual>
+<spdoinfo>
+<direct>Vector</direct>
+<ptvctinf>
+<sdtsterm>
+<ptvctcnt>8811</ptvctcnt>
+</sdtsterm>
+</ptvctinf>
+</spdoinfo>
+<eainfo>
+<detailed>
+<enttyp>
+<enttypl>benthic_WFLShelf_NOVA_poly</enttypl>
+<enttypd>NSU Benthic Habitat Map 2017</enttypd>
+<enttypds>NSU</enttypds>
+</enttyp>
+<attr>
+<attrlabl>BioCoverDe</attrlabl>
+<attrdef>Biological cover description</attrdef>
+<attrdefs>NSU</attrdefs>
+<attrdomv>
+					<edom>
+						<edomv>Continuous</edomv>
+						<edomvd>Unbroken expanse, not patchy, majority of observed benthic cover in situand via remote video</edomvd>
+						<edomvds>NSU</edomvds>
+					</edom>
+				</attrdomv>
+<attrdomv>
+					<edom>
+						<edomv>Discontinuous</edomv>
+						<edomvd>Broken expanse, patchy, minority of observed benthic cover in situand via remote video</edomvd>
+						<edomvds>NSU</edomvds>
+					</edom>
+				</attrdomv>
+<attrdomv>
+					<edom>
+						<edomv>Cyanobacteria</edomv>
+						<edomvd>Cyanobacteria species</edomvd>
+						<edomvds>NSU</edomvds>
+					</edom>
+				</attrdomv>
+<attrdomv>
+					<edom>
+						<edomv>Caulerpa prolifera</edomv>
+						<edomvd>Caulerpa prolifera</edomvd>
+						<edomvds>NSU</edomvds>
+					</edom>
+				</attrdomv>
+<attrdomv>
+					<edom>
+						<edomv>High Cover</edomv>
+						<edomvd>High cover of benthic organisms</edomvd>
+						<edomvds>NSU</edomvds>
+					</edom>
+				</attrdomv>
+</attr>
+<attr>
+<attrlabl>Subsytem</attrlabl>
+<attrdef>Coastal and Marine Ecological Classification Standard - Subsystem Classification</attrdef>
+<attrdefs>NSU</attrdefs>
+<attrdomv>
+					<edom>
+						<edomv>Marine Nearshore Subtidal</edomv>
+						<edomvd>Marine Nearshore Subtidal</edomvd>
+						<edomvds>NSU</edomvds>
+					</edom>
+				</attrdomv>
+</attr>
+<attr>
+<attrlabl>ImageDate</attrlabl>
+<attrdef>The date the imagery was collected on</attrdef>
+<attrdefs>NSU</attrdefs>
+<attrdomv>
+					<edom>
+						<edomv>November 23, 2013</edomv>
+						<edomvd>Imagery collected on November 23, 2013</edomvd>
+						<edomvds>NSU</edomvds>
+					</edom>
+				</attrdomv>
+<attrdomv>
+					<edom>
+						<edomv>June 17, 2012</edomv>
+						<edomvd>Imagery collected on June 17, 2012</edomvd>
+						<edomvds>NSU</edomvds>
+					</edom>
+				</attrdomv>
+<attrdomv>
+					<edom>
+						<edomv>March 03, 2012</edomv>
+						<edomvd>Imagery collected on March 03, 2012</edomvd>
+						<edomvds>NSU</edomvds>
+					</edom>
+				</attrdomv>
+<attrdomv>
+					<edom>
+						<edomv>June 27, 2016</edomv>
+						<edomvd>Imagery collected on June 27, 2016</edomvd>
+						<edomvds>NSU</edomvds>
+					</edom>
+				</attrdomv>
+<attrdomv>
+					<edom>
+						<edomv>December 07, 2011</edomv>
+						<edomvd>Imagery collected on December 07, 2011</edomvd>
+						<edomvds>NSU</edomvds>
+					</edom>
+				</attrdomv>
+<attrdomv>
+					<edom>
+						<edomv>May 08, 2015</edomv>
+						<edomvd>Imagery collected on May 08, 2015</edomvd>
+						<edomvds>NSU</edomvds>
+					</edom>
+				</attrdomv>
+</attr>
+<attr>
+<attrlabl>Shape</attrlabl>
+<attrdef>Feature geometry.</attrdef>
+<attrdefs>Esri</attrdefs>
+<attrdomv>
+					<udom>Coordinates defining the features.</udom>
+				</attrdomv>
+</attr>
+<attr>
+<attrlabl>ClassLv2</attrlabl>
+<attrdef>Final defined habitat type</attrdef>
+<attrdefs>NSU</attrdefs>
+<attrdomv>
+					<edom>
+						<edomv>Pavement - High Cover</edomv>
+						<edomvd>Areas of pavement with extensive scleractinia and octocoral cover</edomvd>
+						<edomvds>NSU</edomvds>
+					</edom>
+				</attrdomv>
+<attrdomv>
+					<edom>
+						<edomv>Sand - Discontinuous Seagrass</edomv>
+						<edomvd>Areas of sand largely covered in discontinuous seagrass beds</edomvd>
+						<edomvds>NSU</edomvds>
+					</edom>
+				</attrdomv>
+<attrdomv>
+					<edom>
+						<edomv>Sand</edomv>
+						<edomvd>Areas of exposed sand</edomvd>
+						<edomvds>NSU</edomvds>
+					</edom>
+				</attrdomv>
+<attrdomv>
+					<edom>
+						<edomv>Sand - Cyanobacteria</edomv>
+						<edomvd>Areas of sand largely covered in cyanobacteria</edomvd>
+						<edomvds>NSU</edomvds>
+					</edom>
+				</attrdomv>
+<attrdomv>
+					<edom>
+						<edomv>Pavement</edomv>
+						<edomvd>Areas of pavement with some scleractinia and octocoral cover, mostly covered in sediment or largely absent of corals</edomvd>
+						<edomvds>NSU</edomvds>
+					</edom>
+				</attrdomv>
+<attrdomv>
+					<edom>
+						<edomv>Sand - Caulerpa prolifera</edomv>
+						<edomvd>Areas of sand largely covered in Caulerpa prolifera</edomvd>
+						<edomvds>NSU</edomvds>
+					</edom>
+				</attrdomv>
+<attrdomv>
+					<edom>
+						<edomv>Sand - Continuous Seagrass</edomv>
+						<edomvd>Areas of sand largely covered in continuous seagrass beds</edomvd>
+						<edomvds>NSU</edomvds>
+					</edom>
+				</attrdomv>
+</attr>
+<attr>
+<attrlabl>BioCover</attrlabl>
+<attrdef>Main type of biological organism inhabitating the polygon</attrdef>
+<attrdefs>NSU</attrdefs>
+<attrdomv>
+					<edom>
+						<edomv>Seagrass</edomv>
+						<edomvd>Various seagrass species</edomvd>
+						<edomvds>NSU</edomvds>
+					</edom>
+				</attrdomv>
+<attrdomv>
+					<edom>
+						<edomv>Macroalgae</edomv>
+						<edomvd>Various macroalgae species</edomvd>
+						<edomvds>NSU</edomvds>
+					</edom>
+				</attrdomv>
+<attrdomv>
+					<edom>
+						<edomv>Algae</edomv>
+						<edomvd>Various algae species</edomvd>
+						<edomvds>NSU</edomvds>
+					</edom>
+				</attrdomv>
+<attrdomv>
+					<edom>
+						<edomv>Live Coral</edomv>
+						<edomvd>Various live stony coral species</edomvd>
+						<edomvds>NSU</edomvds>
+					</edom>
+				</attrdomv>
+</attr>
+<attr>
+<attrlabl>WaterColum</attrlabl>
+<attrdef>Coastal and Marine Ecological Classification Standard - Water Column Classification</attrdef>
+<attrdefs>NSU</attrdefs>
+<attrdomv>
+					<edom>
+						<edomv>Marine Nearshore Lower Water Column</edomv>
+						<edomvd>Marine Nearshore Lower Water Column</edomvd>
+						<edomvds>NSU</edomvds>
+					</edom>
+				</attrdomv>
+</attr>
+<attr>
+<attrlabl>FID</attrlabl>
+<attrdef>Internal feature number.</attrdef>
+<attrdefs>Esri</attrdefs>
+<attrdomv>
+					<udom>Sequential unique whole numbers that are automatically generated.</udom>
+				</attrdomv>
+</attr>
+<attr>
+<attrlabl>GeoFormDet</attrlabl>
+<attrdef>Coastal and Marine Ecological Classification Standard - Geoform Classification</attrdef>
+<attrdefs>NSU</attrdefs>
+<attrdomv>
+					<edom>
+						<edomv>Sand</edomv>
+						<edomvd>All habitats associated with various sediment types</edomvd>
+						<edomvds>NSU</edomvds>
+					</edom>
+				</attrdomv>
+<attrdomv>
+					<edom>
+						<edomv>Pavement</edomv>
+						<edomvd>All habitats associated with coral reef or hardbottom type habitats</edomvd>
+						<edomvds>NSU</edomvds>
+					</edom>
+				</attrdomv>
+</attr>
+<attr>
+<attrlabl>Geoform</attrlabl>
+<attrdef>Coastal and Marine Ecological Classification Standard - Geoform Classification</attrdef>
+<attrdefs>NSU</attrdefs>
+<attrdomv>
+					<edom>
+						<edomv>Unconsolidated Sediment</edomv>
+						<edomvd>All habitats associated with various sediment types</edomvd>
+						<edomvds>NSU</edomvds>
+					</edom>
+				</attrdomv>
+<attrdomv>
+					<edom>
+						<edomv>Coral Reef and Hardbottom</edomv>
+						<edomvd>All habitats associated with coral reef or hardbottom type habitats</edomvd>
+						<edomvds>NSU</edomvds>
+					</edom>
+				</attrdomv>
+</attr>
+<attr>
+<attrlabl>Shape_Area</attrlabl>
+<attrdef>Area of feature in internal units squared.</attrdef>
+<attrdefs>Esri</attrdefs>
+<attrdomv>
+					<udom>Positive real numbers that are automatically generated.</udom>
+				</attrdomv>
+</attr>
+<attr>
+<attrlabl>Location</attrlabl>
+<attrdef>Which of the two study locations the polygon resides</attrdef>
+<attrdefs>NSU</attrdefs>
+<attrdomv>
+					<edom>
+						<edomv>North</edomv>
+						<edomvd>The study area located off the coast of Clearwater</edomvd>
+						<edomvds>NSU</edomvds>
+					</edom>
+				</attrdomv>
+<attrdomv>
+					<edom>
+						<edomv>South</edomv>
+						<edomvd>The study area located off the coast of Sarasota</edomvd>
+						<edomvds>NSU</edomvds>
+					</edom>
+				</attrdomv>
+</attr>
+</detailed>
+<overview>
+<eaover>Hardbottom mapping and community characterization of the West Central Florida Gulf Coast</eaover>
+</overview>
+</eainfo>
+<distinfo>
+<distrib>
+<cntinfo>
+<cntorgp>
+<cntorg>Florida Fish and Wildlife Conservation Commission-Fish and Wildlife Research Institute</cntorg>
+<cntper>GISLibrarian</cntper>
+</cntorgp>
+<cntpos>GIS Data Librarian</cntpos>
+<cntaddr>
+<addrtype>mailing and physical</addrtype>
+<address>Fish and Wildlife Research Institute</address>
+<address>100 Eighth Avenue Southeast</address>
+<city>St. Petersburg</city>
+<state>Florida</state>
+<postal>33701</postal>
+</cntaddr>
+<cntvoice>727-896-8626</cntvoice>
+<cntfax>727-893-1679</cntfax>
+<cntemail>GISLibrarian@MyFWC.com</cntemail>
+</cntinfo>
+</distrib>
+<distliab>This data set is in the public domain, and the recipient may not assert any proprietary rights thereto nor represent it to anyone as other than a Florida Fish and Wildlife Conservation Commission produced data set; it is provided "as-is" without warranty of any kind, including, but not limited to, the implied warranties of merchantability and fitness for a particular purpose. The user assumes all responsibility for the accuracy and suitability of this data set for a specific application. In no event will the staff of the Florida Fish and Wildlife Conservation Commission be liable for any damages, including lost profits, lost savings, or other incidental or consequential damages arising from the use of or the inability to use this data set.</distliab>
+<stdorder>
+<digform>
+<digtopt>
+<onlinopt>
+<computer>
+<networka>
+<networkr>http://myfwc.com/research</networkr>
+</networka>
+</computer>
+</onlinopt>
+</digtopt>
+</digform>
+<fees>None. However, persons or organizations requesting information must provide transfer media if FTP is not available and must pay express shipping costs if express shipping is required.</fees>
+<ordering>Contact GIS Librarian by e-mail, telephone, or letter explaining which products are needed and providing a brief description of how the products will be used. Also, provide name and address of the person or organization requesting the products.</ordering>
+<turnarnd>Usually within 10 business days, although, complex requests may take longer</turnarnd>
+</stdorder>
+</distinfo>
+<metainfo>
+<metd>20171101</metd>
+<metc>
+<cntinfo>
+<cntorgp>
+<cntorg>Florida Fish and Wildlife Conservation Commission-Fish and Wildlife Research Institute</cntorg>
+<cntper>GISLibrarian</cntper>
+</cntorgp>
+<cntpos>GIS Data Librarian</cntpos>
+<cntaddr>
+<addrtype>mailing and physical</addrtype>
+<address>Fish and Wildlife Research Institute</address>
+<address>100 Eighth Avenue Southeast</address>
+<city>St. Petersburg</city>
+<state>Florida</state>
+<postal>33701</postal>
+</cntaddr>
+<cntvoice>727-896-8626</cntvoice>
+<cntfax>727-893-1679</cntfax>
+<cntemail>GISLibrarian@MyFWC.com</cntemail>
+</cntinfo>
+</metc>
+<metstdn>FGDC Content Standard for Digital Geospatial Metadata</metstdn>
+<metstdv>FGDC-STD-001-1998</metstdv>
+<mettc>local time</mettc>
+<metac>No restrictions on metadata</metac>
+<metuc>Metadata must be distributed with the data set.</metuc>
+<metsi>
+<metscs>FWRI-MC</metscs>
+<metshd>Metadata must be distributed with the data set.</metshd>
+</metsi>
+</metainfo>
+</metadata>
